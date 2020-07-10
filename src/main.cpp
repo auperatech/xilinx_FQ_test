@@ -11,21 +11,20 @@ void ListImages(
     std::vector<std::pair<std::string, std::string>>  &images
 )
 {
-	int num_images = 1;
-    images.clear();
+    int num_images = 0;
     for ( boost::filesystem::recursive_directory_iterator end, dir(path);
-        dir != end; ++dir ) {
+        dir != end; ++dir )
+    {
         std::string file_name =  dir->path().filename().string();
         std::string full_path =  dir->path().string();
         std::string ext = file_name.substr(file_name.find_last_of(".") + 1);
         if ((ext == "JPEG") || (ext == "jpeg") || (ext == "JPG") ||
-            (ext == "jpg") || (ext == "PNG") || (ext == "png")) {
-                images.push_back(std::make_pair(file_name, full_path));
-				std::cout << num_images << " pushed to the queue to process" << std::endl;
-				num_images++;
-
-            }
-
+            (ext == "jpg") || (ext == "PNG") || (ext == "png"))
+        {
+            images.push_back(std::make_pair(file_name, full_path));
+			std::cout << num_images << " pushed to the queue" << std::endl;
+			num_images++;
+        }
     }
 }
 
