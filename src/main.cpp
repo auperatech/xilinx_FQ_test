@@ -13,14 +13,13 @@ void ListImages(
 {
     int num_images = 0;
     for ( boost::filesystem::recursive_directory_iterator end, dir(path);
-        dir != end; ++dir )
-    {
+        dir != end; ++dir ){
+
         std::string file_name =  dir->path().filename().string();
         std::string full_path =  dir->path().string();
         std::string ext = file_name.substr(file_name.find_last_of(".") + 1);
         if ((ext == "JPEG") || (ext == "jpeg") || (ext == "JPG") ||
-            (ext == "jpg") || (ext == "PNG") || (ext == "png"))
-        {
+            (ext == "jpg") || (ext == "PNG") || (ext == "png")){
             images.push_back(std::make_pair(file_name, full_path));
 			std::cout << num_images << " pushed to the queue" << std::endl;
 			num_images++;
@@ -52,9 +51,7 @@ int main(int argc, char **argv)
         auto& qualityp = qualityps[i];
         threads[i] = std::thread([&](){
             while(1) {
-                for (auto im:images)
-                {
-
+                for (auto im:images) {
                     cv::Mat img = cv::imread(im.second);
                     auto result = qualityp->run(img);
                     std::cout << result.value << std::endl;
