@@ -21,8 +21,8 @@ void ListImages(
         if ((ext == "JPEG") || (ext == "jpeg") || (ext == "JPG") ||
             (ext == "jpg") || (ext == "PNG") || (ext == "png")){
             images.push_back(std::make_pair(file_name, full_path));
-			std::cout << num_images << " pushed to the queue" << std::endl;
-			num_images++;
+            std::cout << num_images << " pushed to the queue" << std::endl;
+            num_images++;
         }
     }
 }
