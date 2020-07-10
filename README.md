@@ -1,4 +1,4 @@
-# Xilinx_FQ_test
+# Xilinx Face Qualiy Test
 Test Repo to test Xilinx's Face Quality Model
 
 **Dependencies**
